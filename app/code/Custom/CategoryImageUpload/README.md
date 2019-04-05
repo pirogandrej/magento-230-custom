@@ -11,10 +11,6 @@ Add an extra attribute to the image type category (Image). Implement its saving 
 1. Create an upgrade data script to create the new category image attribute.
 app/code/Custom/CategoryImageUpload/Setup/InstallData.php
 
-```php
-const CUSTOM_IMAGE_ATTRIBUTE_CODE = '{image-attribute-code}';
-```
-
 
 2. Create new upload class for the new image attribute.
 app/code/Custom/CategoryImageUpload/Controller/Adminhtml/Category/CustomImage/Upload.php
@@ -35,19 +31,8 @@ app/code/Custom/CategoryImageUpload/view/adminhtml/ui_component/category_form.xm
 
 
 4. Add the new image attribute code to the helper class
-app/code/Custom/CategoryImageUpload/Helper/Category.php
+app/code/Custom/CategoryImageUpload/Helper/Data.php
 
-```php
-return array('{image-attribute-code}');
-```
-
-
-5. Add the new image attribute code in the Controller class Save.
-app/code/Custom/CategoryImageUpload/Controller/Adminhtml/Category/Save.php
-
-```php
-return array('{image-attribute-code}');
-```
 
 You can to see the new field on the category screen under the **Content** group. 
 You can also to upload, save and delete the image file successfully. 
@@ -55,7 +40,7 @@ You can also to upload, save and delete the image file successfully.
 
 6. Show the new image on frontend footer.
 The above block can print category images ONLY on category pages cause it assumes there is already stored category model in core registry.
-app/code/Custom/CategoryImageUpload/view/frontend/layout/default.xml
+app/code/Custom/CategoryImageUpload/view/frontend/layout/catalog_category_view.xml
 
 ```php
 <argument name="image_code" xsi:type="string">{image-attribute-code}</argument>
