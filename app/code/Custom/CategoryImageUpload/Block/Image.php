@@ -7,7 +7,7 @@ use Magento\Framework\View\Element\Template\Context;
 use Magento\Catalog\Model\Layer\Resolver;
 use Magento\Framework\Registry;
 use Magento\Catalog\Helper\Category;
-use Custom\CategoryImageUpload\Helper\Category as CustomHelper;
+use Custom\CategoryImageUpload\Helper\Data as CustomHelper;
 
 class Image extends View
 {

@@ -4,13 +4,14 @@ namespace Custom\CategoryImageUpload\Controller\Adminhtml\Category\CustomImage;
 
 use Magento\Framework\Controller\ResultFactory;
 use Magento\Catalog\Controller\Adminhtml\Category\Image\Upload as ImageUpload;
+use Custom\CategoryImageUpload\Helper\Data as CustomHelper;
 
 class Upload extends ImageUpload
 {
     public function execute()
     {
         try {
-            $result = $this->imageUploader->saveFileToTmpDir('custom_image');
+            $result = $this->imageUploader->saveFileToTmpDir(CustomHelper::CUSTOM_ATTRIBUTE);
 
             $result['cookie'] = [
                 'name' => $this->_getSession()->getName(),

@@ -8,11 +8,10 @@ use Magento\Framework\Setup\ModuleDataSetupInterface;
 use Magento\Eav\Setup\EavSetupFactory;
 use Magento\Catalog\Model\Category;
 use Magento\Eav\Model\Entity\Attribute\ScopedAttributeInterface;
+use Custom\CategoryImageUpload\Helper\Data as CustomHelper;
 
 class InstallData implements InstallDataInterface
 {
-    const CUSTOM_IMAGE_ATTRIBUTE_CODE = 'custom_image';
-
     protected $_eavSetupFactory;
 
     public function __construct(EavSetupFactory $eavSetupFactory)
@@ -34,7 +33,8 @@ class InstallData implements InstallDataInterface
 
             $eavSetup->addAttribute(
                 Category::ENTITY,
-                self::CUSTOM_IMAGE_ATTRIBUTE_CODE, [
+                CustomHelper::CUSTOM_ATTRIBUTE,
+                [
                     'type' => 'varchar',
                     'label' => 'CustomImage',
                     'input' => 'image',
