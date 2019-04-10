@@ -4,36 +4,29 @@ namespace Custom\HidePrice\Helper;
 
 use Magento\Framework\App\Helper\AbstractHelper;
 use Magento\Framework\App\Helper\Context;
-use Magento\Customer\Model\Session;
+use Magento\Customer\Model\Context as CustomerContext;
+use Magento\Framework\App\Http\Context as HttpContext;
 
 class Data extends AbstractHelper
 {
     const XML_CONFIG_ENABLE = 'hideprice/configuration/enablehideprice';
 
-    private $httpContext;
+    private $_httpContext;
 
-    protected $_session;
-
-    public function __construct(
+    public function __construct
+    (
         Context $context,
-        \Magento\Framework\App\Http\Context $httpContext,
-        Session $session
-    ) {
+        HttpContext $httpContext
+    )
+    {
+        $this->_httpContext = $httpContext;
         parent::__construct($context);
-        $this->_session = $session;
-        $this->httpContext = $httpContext;
     }
 
     public function isLoggedIn()
     {
-        $isLoggedIn = $this->httpContext->getValue(\Magento\Customer\Model\Context::CONTEXT_AUTH);
+        $isLoggedIn = $this->_httpContext->getValue(CustomerContext::CONTEXT_AUTH);
         return $isLoggedIn;
-    }
-
-    public function isCustomerlogin()
-    {
-        $result = $this->_session->isLoggedIn();
-        return $result?true:false;
     }
 
     public function isHidePrice()
