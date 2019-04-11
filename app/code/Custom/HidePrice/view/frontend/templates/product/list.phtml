@@ -85,7 +85,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
 
                                         <!-- Start code to hide price ------------------------------------------------>
                                         <?php if($_customHelper->isHide()): ?>
-                                            <a  class="action tocart primary" href="<?php echo $block->getUrl('customer/account/login'); ?>">
+                                            <a  class="action tocart primary custom-category" href="<?php echo $block->getUrl('customer/account/login'); ?>">
                                                 <?php  echo "login to see price";?>
                                             </a>
                                         <?php endif; ?>

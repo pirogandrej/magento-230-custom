@@ -1,9 +1,3 @@
-<!-- Start code to hide price ------------------------------------------------>
-<?php
-    $_customHelper = $this->helper('Custom\HidePrice\Helper\Data');
-?>
-<!---------------------------------------------------------------------------->
-
 <?php if ($exist = ($block->getProductCollection() && $block->getProductCollection()->getSize())): ?>
     <?php
     $type = 'widget-product-grid';
@@ -73,8 +67,8 @@
                                                 <?php else: ?>
 
                                                     <!-- Start code to hide price ------------------------------------------------>
-                                                    <?php if($_customHelper->isHide()): ?>
-                                                        <a  class="action tocart primary" href="<?php echo $block->getUrl('customer/account/login'); ?>">
+                                                    <?php if($block->isHide()): ?>
+                                                        <a  class="action tocart primary custom-category" href="<?php echo $block->getUrl('customer/account/login'); ?>">
                                                             <?php  echo "login to see price";?>
                                                         </a>
                                                     <?php endif; ?>

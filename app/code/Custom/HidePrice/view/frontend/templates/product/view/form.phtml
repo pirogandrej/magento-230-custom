@@ -1,7 +1,7 @@
 <!-- Start code to hide price ------------------------------------------------------------>
 <?php $_customHelper = $this->helper('Custom\HidePrice\Helper\Data'); ?>
 <?php if($_customHelper->isHide()): ?>
-    <?php $loginbutton='<a class="action tocart primary" href="' . $block->getUrl('customer/account/login') . '">'. 'login to see price' . '</a><br />';?>
+    <?php $loginbutton='<a class="action tocart primary custom-product" href="' . $block->getUrl('customer/account/login') . '">'. 'login to see price' . '</a><br />';?>
     <?php echo $loginbutton; ?>
 <?php endif; ?>
 <!-- Start code to hide price -------------------------------------------------------------->
